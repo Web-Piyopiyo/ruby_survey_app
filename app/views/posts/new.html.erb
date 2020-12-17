@@ -1,0 +1,71 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">アンケート回答</h1>
+    <%= form_for @post, url: posts_create_path do |f| %>
+      <div class="form">
+        <div class="form-body">
+            <p>
+              <%= f.label :name, "氏名を教えてください。" %>
+              <% if @post.errors.include?(:name) %>
+                <div class="form-error">
+                  <%= @post.errors.full_messages_for(:name).first %>
+                </div>
+              <% end %>
+              <%= f.text_field :name, placeholder: @post.name %>
+            </p>
+            <br>
+            <p>
+              <%= f.label :age, "年齢を教えてください。" %>
+              <% if @post.errors.include?(:age) %>
+                <div class="form-error">
+                  <%= @post.errors.full_messages_for(:age).first %>
+                </div>
+              <% end %>
+              <p>
+                <%= f.select :age, ["20歳未満","20歳～39歳","40歳～59歳","60歳以上"], :prompt => "選択してください" %>
+              </p>
+            </p>
+            <br>
+            <p>
+              <%= f.label :gender, "性別を教えてください。" %>
+              <% if @post.errors.include?(:gender) %>
+                <div class="form-error">
+                  <%= @post.errors.full_messages_for(:gender).first %>
+                </div>
+              <% end %>
+              <p>
+                <label><%= f.radio_button :gender, "男性" %>男性</label>
+                <label><%= f.radio_button :gender, "女性" %>女性</label>
+              </p>
+            </p>
+            <br>
+            <p>
+              <%= f.label :property, "希望物件種別を教えてください。" %>
+              <% if @post.errors.include?(:property) %>
+                <div class="form-error">
+                  <%= @post.errors.full_messages_for(:property).first %>
+                </div>
+              <% end %>
+              <p><label><%= f.check_box :property ,{ multiple: true, include_hidden: false }, "新築一戸建て" %>新築一戸建て</label></p>
+              <p><label><%= f.check_box :property ,{ multiple: true, include_hidden: false }, "中古一戸建て" %>中古一戸建て</label></p>
+              <p><label><%= f.check_box :property ,{ multiple: true, include_hidden: false }, "マンション" %>マンション</label></p>
+              <p><label><%= f.check_box :property ,{ multiple: true, include_hidden: false }, "土地" %>土地</label></p>
+            </p>
+            <br>
+            <p>
+              <%= f.label :request, "その他ご要望をご入力ください。" %>
+              <% if @post.errors.include?(:request) %>
+                <div class="form-error">
+                  <%= @post.errors.full_messages_for(:request).first %>
+                </div>
+              <% end %>
+              <%= f.text_area :request, placeholder: @post.request, class: "hoge", size: "30x10" %>
+            </p>        
+            <p>
+              <%= f.submit "送信" %>
+            </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <p>氏名を教えてください。</p>
+      <p>→<%= @post.name %></p>
+      <br>
+      
+      <p>年齢を教えてください。</p>
+      <p>→<%= @post.age %></p>
+      <br>
+      
+      <p>性別を教えてください。</p>
+      <p>→<%= @post.gender %></p>
+      <br>
+      
+      <p>希望物件種別を教えてください。</p>
+      <p>→<%= @post.property %></p>
+      <br>
+      
+      <p>その他ご要望を教えてください。</p>
+      <p>→<%= @post.request %></p>
+    </div>
+    
+    <div class="return-index">
+      <%= link_to("一覧へ戻る", "/posts/index") %>
+    </div>
+  </div>
+</div>

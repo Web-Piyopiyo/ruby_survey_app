@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        name: 名前
+        age: 年齢
+        gender: 性別
+        property: 希望物件種別
+        request: その他ご要望
